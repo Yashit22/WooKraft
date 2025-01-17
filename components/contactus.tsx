@@ -10,18 +10,18 @@ const CustomInput = forwardRef(
     const inputRef = useRef(null);
 
     const handleFocus = () => {
-      if (onFocus) onFocus();
-      if (inputRef.current) {
-        inputRef.current.classList.add("--focus");
-      }
-    };
+  if (onFocus) onFocus();
+  if (inputRef.current) {
+    (inputRef.current as HTMLInputElement)?.classList.add("--focus");
+  }
+};
 
-    const handleBlur = () => {
-      if (onBlur) onBlur();
-      if (inputRef.current) {
-        inputRef.current.classList.remove("--focus");
-      }
-    };
+const handleBlur = () => {
+  if (onBlur) onBlur();
+  if (inputRef.current) {
+    (inputRef.current as HTMLInputElement)?.classList.remove("--focus");
+  }
+};
 
     return (
       <input
@@ -92,10 +92,71 @@ const ContactUs = () => {
     setIsOtherIndustry(selectedIndustry === "Others");
   };
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    console.log(formData);
-  };
+  // const handleSubmit = (e: any) => {
+  //   e.preventDefault();
+  //   console.log(formData);
+  // }; 
+
+//   const handleSubmit = async (e: any) => {
+//   e.preventDefault();
+
+//   const scriptURL = "https://script.google.com/macros/s/AKfycbyjce5HQyabg9WpRgFO3U3VI4Y-qAlQL5zSf6rKR72l7OSINY9enyxZ0yeWJ7unVHKpMA/exec"; // Replace with your Web App URL
+
+//   try {
+//     const response = await fetch(scriptURL, {
+//       method: "POST",
+//       body: JSON.stringify(formData),
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//     });
+
+//     if (response.ok) {
+//       alert("Form submitted successfully!");
+//     } else {
+//       alert("Failed to submit the form.");
+//     }
+//   } catch (error) {
+//     console.error("Error submitting form: ", error);
+//     alert("An error occurred while submitting the form.");
+//   }
+// };
+
+const handleSubmit = async (e: any) => {
+  e.preventDefault();
+
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwRgBr0tXmIDgQejXf6dUn7OTuad0Ejwsjc_li4O-Uz3toN9zK7G4xcDc1DB5vL-csU3A/exec";
+
+  try {
+    const response = await fetch(scriptURL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await response.json();
+    if (result.status === "success") {
+      alert("Data submitted successfully!");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        businessName: "",
+        industry: "",
+        otherIndustry: "",
+        postalCode: "",
+      });
+    } else {
+      alert("Error submitting data. Please try again.");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Error submitting data. Please try again.");
+  }
+};
+
+  
 
   const dropdownStyle = {
     backgroundColor: "#111827E6",
@@ -260,20 +321,19 @@ const ContactUs = () => {
             </div>
 
             {/* Submit Button */}
-            <div className="flex justify-center">
+              <div className="flex justify-center">
               <div data-aos="fade-up" data-aos-delay={400}>
-                  <a
-                    className="btn group mb-4 w-full bg-gradient-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-[inset_0px_1px_0px_0px_theme(colors.white/.16)] hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto"
-                    href="#0"
-                  >
-                    <span className="relative inline-flex items-center">
-                      Submit
-                      <span className="ml-1 tracking-normal text-white/50 transition-transform group-hover:translate-x-0.5">
-                        -&gt;
-                      </span>
+               <button
+                  type="submit"
+                  className="btn group mb-4 w-full bg-gradient-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] text-white shadow-[inset_0px_1px_0px_0px_theme(colors.white/.16)] hover:bg-[length:100%_150%] sm:mb-0 sm:w-auto">
+                  <span className="relative inline-flex items-center">
+                    Submit
+                    <span className="ml-1 tracking-normal text-white/50 transition-transform group-hover:translate-x-0.5">
+                    -&gt;
                     </span>
-                  </a>
-              </div>
+                  </span>
+                </button>
+             </div>
             </div>
           </form>
         </div>

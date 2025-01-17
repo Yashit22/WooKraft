@@ -11,18 +11,16 @@ export default function Workflows() {
         <div className="pb-12 md:pb-20">
           {/* Section header */}
           <div className="mx-auto max-w-3xl pb-12 text-center md:pb-20">
-            <div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-gradient-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-gradient-to-l after:from-transparent after:to-indigo-200/50">
+            {/*<div className="inline-flex items-center gap-3 pb-3 before:h-px before:w-8 before:bg-gradient-to-r before:from-transparent before:to-indigo-200/50 after:h-px after:w-8 after:bg-gradient-to-l after:from-transparent after:to-indigo-200/50">
               <span className="inline-flex bg-gradient-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
                 Tailored Workflows
               </span>
-            </div>
+            </div> */}
             <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,theme(colors.gray.200),theme(colors.indigo.200),theme(colors.gray.50),theme(colors.indigo.300),theme(colors.gray.200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
-              Map your product journey
+            Tech that fits your business
             </h2>
             <p className="text-lg text-indigo-200/65">
-              Simple and elegant interface to start collaborating with your team
-              in minutes. It seamlessly integrates with your code and your
-              favorite programming languages.
+            Technology designed to seamlessly fit and enhance your business operations, with an easy-to-use interface that simplifies management and boosts efficiency.
             </p>
           </div>
           {/* Spotlight items */}
@@ -51,13 +49,15 @@ export default function Workflows() {
                   </svg>
                 </div>
                 {/* Image */}
+                <div className="flex justify-center">
                 <Image
                   className="inline-flex"
                   src={WorflowImg01}
-                  width={330}
-                  height={180}
+                  width={300}
+                  height={268}
                   alt="Tailored"
                 />
+                </div>
                 {/* Content */}
                 <div className="p-6 text-center md:pt-items-center">
                   <div className="mb-3">
@@ -68,8 +68,7 @@ export default function Workflows() {
                     </span>
                   </div>
                   <p className="text-indigo-200/65">
-                    Streamline the product development flow with a content
-                    platform that's aligned across specs and insights.
+                  Our products are customized to fit your business needs for optimal performance.
                   </p>
                 </div>
               </div>
@@ -98,13 +97,15 @@ export default function Workflows() {
                   </svg>
                 </div>
                 {/* Image */}
+                <div className="flex justify-center">
                 <Image
                   className="inline-flex"
                   src={WorflowImg02}
-                  width={350}
+                  width={300}
                   height={268}
-                  alt="Workflow 02"
+                  alt="Tailored"
                 />
+                </div>
                 {/* Content */}
                 <div className="p-6 text-center md:pt-items-center">
                   <div className="mb-3">
@@ -115,8 +116,7 @@ export default function Workflows() {
                     </span>
                   </div>
                   <p className="text-indigo-200/65">
-                    Streamline the product development flow with a content
-                    platform that's aligned across specs and insights.
+                  Manage all systems effortlessly through a centralized admin panel, giving you full control at your fingertips.
                   </p>
                 </div>
               </div>
@@ -145,13 +145,15 @@ export default function Workflows() {
                   </svg>
                 </div>
                 {/* Image */}
+                <div className="flex justify-center">
                 <Image
                   className="inline-flex"
                   src={WorflowImg03}
-                  width={350}
-                  height={288}
-                  alt="Workflow 03"
+                  width={300}
+                  height={268}
+                  alt="Tailored"
                 />
+                </div>
                 {/* Content */}
                 <div className="p-6 text-center md:pt-items-center">
                   <div className="mb-3">
@@ -162,8 +164,7 @@ export default function Workflows() {
                     </span>
                   </div>
                   <p className="text-indigo-200/65">
-                    Streamline the product development flow with a content
-                    platform that's aligned across specs and insights.
+                  Wookraft offers 24/7 support, ensuring you always have expert assistance whenever you need it.
                   </p>
                 </div>
               </div>
